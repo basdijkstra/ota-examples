@@ -1,0 +1,72 @@
+test_name: Get location for US zip code 90210 and check response status code
+
+stages:
+  - name: Check that HTTP status code equals 200
+    request:
+      url: http://api.zippopotam.us/us/90210
+      method: GET
+    response:
+      status_code: 200
+
+---
+test_name: Get location for US zip code 90210 and check response content type
+
+stages:
+  - name: Check that content type equals application/json
+    request:
+      url: http://api.zippopotam.us/us/90210
+      method: GET
+    response:
+      headers:
+        content-type: application/json
+
+---
+test_name: Get location for US zip code 90210 and check response body content
+
+stages:
+  - name: Check that place name equals Beverly Hills
+    request:
+      url: http://api.zippopotam.us/us/90210
+      method: GET
+    response:
+      body:
+        places:
+          - place name: Beverly Hills
+
+---
+test_name: Check place name for multiple combinations of country code and zip code
+
+marks:
+  - parametrize:
+      key:
+        - country_code
+        - zip_code
+        - place_name
+      vals:
+        - [us, 12345, Schenectady]
+        - [ca, B2A, North Sydney South Central]
+        - [nl, 3825, Vathorst]
+
+stages:
+  - name: Verify place name in response body
+    request:
+      url: http://api.zippopotam.us/{country_code}/{zip_code}
+      method: GET
+    response:
+      body:
+        places:
+          - place name: "{place_name}"
+
+---
+test_name: Check response status code for a very simple addition API
+
+stages:
+  - name: Verify that status code equals 200 when two integers are specified
+    request:
+      url: http://localhost:5000/add
+      json:
+        first_number: 5
+        second_number: 6
+      method: POST
+    response:
+      status_code: 200
