@@ -13,11 +13,13 @@ namespace RestSharpDataDriven
         [TestCase("us", "90210", "Beverly Hills", TestName = "Check that US zipcode 90210 yields Beverly Hills")]
         [TestCase("us", "12345", "Schenectady", TestName = "Check that US zipcode 12345 yields Schenectady")]
         [TestCase("ca", "Y1A", "Whitehorse", TestName = "Check that CA zipcode Y1A yields Whitehorse")]
-        public void RetrieveDataFor_ShouldYield(string countryCode, string zipCode, string expectedPlaceName)
+        public void RetrieveDataFor_ShouldYield
+            (string countryCode, string zipCode, string expectedPlaceName)
         {
             // arrange
             RestClient client = new RestClient(BASE_URL);
-            RestRequest request = new RestRequest($"{countryCode}/{zipCode}", Method.GET);
+            RestRequest request =
+                new RestRequest($"{countryCode}/{zipCode}", Method.GET);
 
             // act
             IRestResponse response = client.Execute(request);
@@ -26,7 +28,10 @@ namespace RestSharpDataDriven
                 Deserialize<LocationResponse>(response);
 
             // assert
-            Assert.That(locationResponse.Places[0].PlaceName, Is.EqualTo(expectedPlaceName));
+            Assert.That(
+                locationResponse.Places[0].PlaceName,
+                Is.EqualTo(expectedPlaceName)
+            );
         }
     }
 }

@@ -15,7 +15,8 @@ namespace RestSharpDataDriven
         {
             // arrange
             RestClient client = new RestClient(BASE_URL);
-            RestRequest request = new RestRequest("us/90210", Method.GET);
+            RestRequest request = 
+                new RestRequest("us/90210", Method.GET);
 
             // act
             IRestResponse response = client.Execute(request);
@@ -24,7 +25,10 @@ namespace RestSharpDataDriven
                 Deserialize<LocationResponse>(response);
 
             // assert
-            Assert.That(locationResponse.Places[0].PlaceName, Is.EqualTo("Beverly Hills"));
+            Assert.That(
+                locationResponse.Places[0].PlaceName,
+                Is.EqualTo("Beverly Hills")
+            );
         }
 
         [Test]
@@ -32,7 +36,8 @@ namespace RestSharpDataDriven
         {
             // arrange
             RestClient client = new RestClient(BASE_URL);
-            RestRequest request = new RestRequest("us/12345", Method.GET);
+            RestRequest request =
+                new RestRequest("us/12345", Method.GET);
 
             // act
             IRestResponse response = client.Execute(request);
@@ -41,7 +46,10 @@ namespace RestSharpDataDriven
                 Deserialize<LocationResponse>(response);
 
             // assert
-            Assert.That(locationResponse.Places[0].PlaceName, Is.EqualTo("Schenectady"));
+            Assert.That(
+                locationResponse.Places[0].PlaceName,
+                Is.EqualTo("Schenectady")
+            );
         }
 
         [Test]
@@ -49,7 +57,8 @@ namespace RestSharpDataDriven
         {
             // arrange
             RestClient client = new RestClient(BASE_URL);
-            RestRequest request = new RestRequest("ca/Y1A", Method.GET);
+            RestRequest request = 
+                new RestRequest("ca/Y1A", Method.GET);
 
             // act
             IRestResponse response = client.Execute(request);
@@ -58,7 +67,10 @@ namespace RestSharpDataDriven
                 Deserialize<LocationResponse>(response);
 
             // assert
-            Assert.That(locationResponse.Places[0].PlaceName, Is.EqualTo("Whitehorse"));
+            Assert.That(
+                locationResponse.Places[0].PlaceName,
+                Is.EqualTo("Whitehorse")
+            );
         }
     }
 }
