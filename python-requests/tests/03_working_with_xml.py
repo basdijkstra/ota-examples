@@ -18,7 +18,7 @@ def fixed_xml_body_as_string():
     """
 
 
-def test_send_xml_body_from_docstring_check_status_code_is_200_and_name_is_correct():
+def test_send_xml_body_from_string_check_status_code_and_content_type():
     response = requests.post(
         "http://parabank.parasoft.com/parabank/services/bank/billpay?accountId=12345&amount=500",
         headers={"Content-Type": "application/xml"},
@@ -48,7 +48,7 @@ def create_xml_body_using_elementtree():
     return et.tostring(payee)
 
 
-def test_send_xml_body_from_elementtree_check_status_code_is_200_and_name_is_correct():
+def test_send_xml_body_from_elementtree_check_status_code_and_content_type():
     response = requests.post(
         "http://parabank.parasoft.com/parabank/services/bank/billpay?accountId=12345&amount=500",
         headers={"Content-Type": "application/xml"},
