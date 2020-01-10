@@ -19,7 +19,11 @@ def fixed_xml_body_as_string():
 
 
 def test_send_xml_body_from_docstring_check_status_code_is_200_and_name_is_correct():
-    response = requests.post("http://parabank.parasoft.com/parabank/services/bank/billpay?accountId=12345&amount=500", headers={"Content-Type": "application/xml"}, data=fixed_xml_body_as_string())
+    response = requests.post(
+        "http://parabank.parasoft.com/parabank/services/bank/billpay?accountId=12345&amount=500",
+        headers={"Content-Type": "application/xml"},
+        data=fixed_xml_body_as_string()
+    )
     assert response.status_code == 200
     assert response.headers["Content-Type"] == "application/xml"
 
@@ -41,14 +45,15 @@ def create_xml_body_using_elementtree():
     phone_number.text = '0123456789'
     account_number = et.SubElement(payee, 'accountNumber')
     account_number.text = '12345'
-    return payee
+    return et.tostring(payee)
 
 
 def test_send_xml_body_from_elementtree_check_status_code_is_200_and_name_is_correct():
-    xml = create_xml_body_using_elementtree()
-    xml_as_string = et.tostring(xml)
-    response = requests.post("http://parabank.parasoft.com/parabank/services/bank/billpay?accountId=12345&amount=500", headers={"Content-Type": "application/xml"}, data=xml_as_string)
-    print(response.request.body)
+    response = requests.post(
+        "http://parabank.parasoft.com/parabank/services/bank/billpay?accountId=12345&amount=500",
+        headers={"Content-Type": "application/xml"},
+        data=create_xml_body_using_elementtree()
+    )
     assert response.status_code == 200
     assert response.headers["Content-Type"] == "application/xml"
 
