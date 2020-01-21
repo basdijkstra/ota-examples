@@ -8,10 +8,6 @@ import (
 	"testing"
 )
 
-type LocationResponse struct {
-	Country string `json:"country"`
-}
-
 func Test_GetUs90210_StatusCodeShouldEqual200(t *testing.T) {
 
 	client := resty.New()
