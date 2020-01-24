@@ -45,7 +45,7 @@ func Test_GetUs90210_CountryShouldEqualUnitedStates(t *testing.T) {
 
 	myResponse := LocationResponse{}
 
-	err := json.Unmarshal(resp.Body(), myResponse)
+	err := json.Unmarshal(resp.Body(), &myResponse)
 
 	if err != nil {
 		fmt.Println(err)

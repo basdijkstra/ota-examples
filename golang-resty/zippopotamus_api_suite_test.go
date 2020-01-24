@@ -36,7 +36,7 @@ func (suite *ZippopotamUsTestSuite) Test_GetUs90210_CountryShouldEqualUnitedStat
 
 	myResponse := LocationResponse{}
 
-	err := json.Unmarshal(resp.Body(), myResponse)
+	err := json.Unmarshal(resp.Body(), &myResponse)
 
 	if err != nil {
 		fmt.Println(err)
