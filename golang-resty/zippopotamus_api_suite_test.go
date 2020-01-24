@@ -6,6 +6,7 @@ import (
 	"github.com/go-resty/resty"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
+	"testing"
 )
 
 type ZippopotamUsTestSuite struct {
@@ -44,4 +45,8 @@ func (suite *ZippopotamUsTestSuite) Test_GetUs90210_CountryShouldEqualUnitedStat
 	}
 
 	assert.Equal(suite.T(), "United States", myResponse.Country)
+}
+
+func TestZippopotamUsSuite(t *testing.T) {
+	suite.Run(t, new(ZippopotamUsTestSuite))
 }
