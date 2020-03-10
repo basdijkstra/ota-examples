@@ -14,4 +14,9 @@ public class LoanRequest {
     private String fromAccountId;
 
     public LoanRequest(){}
+
+    public static LoanRequest createALoanRequestWithSufficientFunds() {
+
+        return LoanRequest.builder().loanAmount("1000").downPayment("100").fromAccountId("54321").build();
+    }
 }

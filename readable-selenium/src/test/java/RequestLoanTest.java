@@ -44,7 +44,7 @@ public class RequestLoanTest {
     public void requestLoan_withSufficientFunds_shouldBeApproved() {
 
         LoanRequest aLoanRequestWithSufficientFunds =
-            LoanRequest.builder().loanAmount("1000").downPayment("100").fromAccountId("54321").build();
+            LoanRequest.createALoanRequestWithSufficientFunds();
 
         new RequestLoanPage(driver).
             load().
