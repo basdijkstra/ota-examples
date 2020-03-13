@@ -1,12 +1,7 @@
-import dataentities.Account;
-import dataentities.AccountType;
-import dataentities.LoanRequest;
-import dataentities.User;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import dataentities.*;
+import helpers.DriverHelpers;
+import org.junit.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import pages.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,12 +11,9 @@ public class OpenAccountTest {
     private WebDriver driver;
 
     @Before
-    public void createBrowser() {
+    public void startBrowserAndLogIn() {
 
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
-
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        driver = DriverHelpers.createADriverOfType(DriverType.CHROME);
 
         User john = User.builder().username("john").password("demo").build();
 

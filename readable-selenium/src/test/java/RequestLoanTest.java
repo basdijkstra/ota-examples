@@ -1,8 +1,11 @@
 import dataentities.*;
+import helpers.DriverHelpers;
 import pages.*;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.sql.Driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -13,10 +16,7 @@ public class RequestLoanTest {
     @Before
     public void createBrowser() {
 
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
-
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        driver = DriverHelpers.createADriverOfType(DriverType.CHROME);
 
         User john = User.builder().username("john").password("demo").build();
 

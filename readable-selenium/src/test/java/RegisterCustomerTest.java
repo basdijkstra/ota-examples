@@ -1,7 +1,5 @@
-import dataentities.Account;
-import dataentities.AccountType;
-import dataentities.Customer;
-import dataentities.User;
+import dataentities.*;
+import helpers.DriverHelpers;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,10 +16,7 @@ public class RegisterCustomerTest {
     @Before
     public void createBrowser() {
 
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
-
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        driver = DriverHelpers.createADriverOfType(DriverType.CHROME);
     }
 
     @Test
