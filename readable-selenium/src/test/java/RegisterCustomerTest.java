@@ -21,8 +21,6 @@ public class RegisterCustomerTest {
 
         Customer aCustomerWithValidDetails = new Customer().toBuilder().build();
 
-        System.out.println("CUSTOMER: " + aCustomerWithValidDetails.getFirstName());
-
         new RegisterCustomerPage(driver).
                 load().
                 register(aCustomerWithValidDetails);
