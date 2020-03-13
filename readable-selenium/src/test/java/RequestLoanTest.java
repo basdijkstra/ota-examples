@@ -3,9 +3,6 @@ import helpers.DriverHelpers;
 import pages.*;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.sql.Driver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
