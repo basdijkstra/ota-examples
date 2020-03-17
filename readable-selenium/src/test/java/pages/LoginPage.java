@@ -1,5 +1,6 @@
 package pages;
 
+import dataentities.Credentials;
 import dataentities.User;
 import helpers.SeleniumHelpers;
 import org.openqa.selenium.By;
@@ -23,9 +24,9 @@ public class LoginPage {
         return this;
     }
 
-    public void loginAs(User user) {
-        selenium.sendKeys(driver, textfieldUsername, user.getUsername());
-        selenium.sendKeys(driver, textfieldPassword, user.getPassword());
+    public void loginUsing(Credentials credentials) {
+        selenium.sendKeys(driver, textfieldUsername, credentials.getUsername());
+        selenium.sendKeys(driver, textfieldPassword, credentials.getPassword());
         selenium.click(driver, buttonDoLogin);
     }
 }

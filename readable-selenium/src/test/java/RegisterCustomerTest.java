@@ -17,7 +17,7 @@ public class RegisterCustomerTest {
     }
 
     @Test
-    public void createCustomer_withValidData_shouldBeAbleToLogin() {
+    public void createCustomer_withValidData_shouldSeeConfirmation() {
 
         Customer aCustomerWithValidDetails = new Customer().toBuilder().build();
 

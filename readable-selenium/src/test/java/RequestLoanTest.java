@@ -15,11 +15,11 @@ public class RequestLoanTest {
 
         driver = DriverHelpers.createADriverOfType(DriverType.CHROME);
 
-        User john = User.builder().username("john").password("demo").build();
+        Credentials johnsCredentials = Credentials.builder().username("john").password("demo").build();
 
         new LoginPage(driver).
-            load().
-            loginAs(john);
+                load().
+                loginUsing(johnsCredentials);
     }
 
     @Test
