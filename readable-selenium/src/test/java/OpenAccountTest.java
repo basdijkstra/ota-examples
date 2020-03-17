@@ -1,4 +1,5 @@
 import dataentities.*;
+import helpers.ApiHelpers;
 import helpers.DriverHelpers;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +12,9 @@ public class OpenAccountTest {
     private WebDriver driver;
 
     @Before
-    public void startBrowserAndLogIn() {
+    public void initializeDatabaseAndLogin() {
+
+        ApiHelpers.initializeDatabaseBeforeTest();
 
         driver = DriverHelpers.createADriverOfType(DriverType.CHROME);
 

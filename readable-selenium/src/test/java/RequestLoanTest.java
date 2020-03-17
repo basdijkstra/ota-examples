@@ -47,7 +47,8 @@ public class RequestLoanTest {
             load().
             submit(aLoanRequestWithSufficientFunds);
 
-        String theDisplayedApplicationResult = new RequestLoanResultPage(driver).getLoanApplicationResult();
+        String theDisplayedApplicationResult =
+                new RequestLoanResultPage(driver).getLoanApplicationResult();
 
         assertThat(theDisplayedApplicationResult).isEqualTo("Approved");
     }
