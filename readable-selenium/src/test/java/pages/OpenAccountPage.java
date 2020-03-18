@@ -22,9 +22,9 @@ public class OpenAccountPage {
         return this;
     }
 
-    public void open(Account account, String depositFromAccountWithId) {
-        selenium.select(driver, dropdownAccountType, account.getAccountType().toString());
-        selenium.selectWithWait(driver, dropdownFromAccountId, depositFromAccountWithId);
+    public void open(Account newAccount, Account depositFromAccount) {
+        selenium.select(driver, dropdownAccountType, newAccount.getType().toString());
+        selenium.selectWithWait(driver, dropdownFromAccountId, Integer.toString(depositFromAccount.getId()));
         selenium.click(driver, buttonOpenNewAccount);
     }
 }

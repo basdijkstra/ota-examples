@@ -7,7 +7,9 @@ import lombok.*;
 @AllArgsConstructor
 public class Account {
 
-    private AccountType accountType;
+    private AccountType type;
+    private int id;
+    private double balance;
 
     public Account(){}
 }

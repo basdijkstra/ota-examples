@@ -29,11 +29,14 @@ public class OpenAccountTest {
     public void openAccount_withSufficientFunds_shouldSucceed() {
 
         Account aNewCheckingAccount =
-                Account.builder().accountType(AccountType.CHECKING).build();
+                Account.builder().type(AccountType.CHECKING).build();
+
+        Account depositingFromAccount =
+                Account.builder().id(12345).build();
 
         new OpenAccountPage(driver).
                 load().
-                open(aNewCheckingAccount, "12345");
+                open(aNewCheckingAccount, depositingFromAccount);
 
         boolean newAccountIdIsDisplayed = new OpenAccountResultPage(driver).newAccountIdIsDisplayed();
 

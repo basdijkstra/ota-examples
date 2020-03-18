@@ -1,7 +1,6 @@
 package pages;
 
 import dataentities.Credentials;
-import dataentities.User;
 import helpers.SeleniumHelpers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
