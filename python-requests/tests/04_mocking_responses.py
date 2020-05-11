@@ -42,7 +42,7 @@ def test_responses_can_raise_error_on_demand():
 
 
 @responses.activate
-def test_calc_api():
+def test_using_a_callback_for_dynamic_responses():
 
     def request_callback(request):
         request_url = request.url
@@ -55,9 +55,8 @@ def test_calc_api():
         content_type='application/json',
     )
 
-    resp = requests.get('http://api.zippopotam.us/us/55555')
-
-    assert resp.json() == {'value': 'You requested data for US zip code 55555'}
+    response = requests.get('http://api.zippopotam.us/us/55555')
+    assert response.json() == {'value': 'You requested data for US zip code 55555'}
 
     assert len(responses.calls) == 1
     assert responses.calls[0].request.url == 'http://api.zippopotam.us/us/55555'
