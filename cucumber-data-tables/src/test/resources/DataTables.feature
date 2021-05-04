@@ -27,9 +27,9 @@ Feature: Data table examples
       | Giorgio Chiellini | Italy           | 14-08-1984  | 2005/2006       |
 
   Scenario: Listing historic football match results - the verbose way
-    Given the final result of the Derby d'Italia played on 17-01-2021 was Internazionale 2, Juventus 0
-    And the final result of the Derby d'Italia played on 08-03-2020 was Internazionale 0, Juventus 2
-    And the final result of the Derby d'Italia played on 06-10-2019 was Internazionale 1, Juventus 2
+    Given the final score of the Derby d'Italia played on 17-01-2021 was Internazionale 2, Juventus 0
+    And the final score of the Derby d'Italia played on 08-03-2020 was Internazionale 0, Juventus 2
+    And the final score of the Derby d'Italia played on 06-10-2019 was Internazionale 1, Juventus 2
 
   Scenario: Listing historic football match results - the clear way
     Given the following historic Derby d'Italia results

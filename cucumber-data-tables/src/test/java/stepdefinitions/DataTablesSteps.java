@@ -32,15 +32,15 @@ public class DataTablesSteps {
         }
     }
 
-    @Given("^the final result of the Derby d'Italia played on (.*) was Internazionale (\\d+), Juventus (\\d+)$")
-    public void the_final_result_of_the_derby_dItalia_played_on_date_was_Internazionale_score_Juventus_score(String date, int interGoals, int juveGoals) {
-        System.out.printf("The final result of the Derby d'Italia played on %s was Internazionale %d, Juventus %d", date, interGoals, juveGoals);
+    @Given("^the final score of the Derby d'Italia played on (.*) was Internazionale (\\d+), Juventus (\\d+)$")
+    public void the_final_score_of_the_derby_dItalia_played_on_date_was_Internazionale_score_Juventus_score(String date, int interGoals, int juveGoals) {
+        System.out.printf("The final score of the Derby d'Italia played on %s was Internazionale %d, Juventus %d", date, interGoals, juveGoals);
     }
 
     @Given("the following historic Derby d'Italia results")
     public void the_following_historic_derby_dItalia_results(Map<String, Map<String, Integer>> results) {
         results.forEach((date, scores) ->
-                System.out.printf("The final result of the Derby d'Italia played on %s was Internazionale %d, Juventus %d%n",
+                System.out.printf("The final score of the Derby d'Italia played on %s was Internazionale %d, Juventus %d%n",
                         date, scores.get("Internazionale"), scores.get("Juventus"))
         );
     }
