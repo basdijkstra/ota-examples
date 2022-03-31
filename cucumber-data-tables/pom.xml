@@ -12,6 +12,8 @@
         <java.version>14</java.version>
         <junit.version>4.13.2</junit.version>
         <cucumber.version>7.2.3</cucumber.version>
+        <lombok.version>1.18.22</lombok.version>
+        <apache.commons.collections4.version>4.4</apache.commons.collections4.version>
         <maven.compiler.version>3.3</maven.compiler.version>
     </properties>
 
@@ -27,6 +29,20 @@
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
             <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>${apache.commons.collections4.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
